@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaGraduationCap } from 'react-icons/fa';
 import { HiLightningBolt, HiSparkles } from 'react-icons/hi';
 
@@ -14,11 +15,11 @@ export default function ServicesPage() {
             <span className="font-bold text-xl">CodengenX</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-noir hover:text-rust transition-colors">Home</a>
-            <a href="/about" className="text-noir hover:text-rust transition-colors">About Us</a>
-            <a href="/services" className="text-rust font-bold transition-colors">Services</a>
-            <a href="/blog" className="text-noir hover:text-rust transition-colors">Blog</a>
-            <a href="/contact" className="text-noir hover:text-rust transition-colors">Contact</a>
+            <Link href="/" className="text-noir hover:text-rust transition-colors">Home</Link>
+            <Link href="/about" className="text-noir hover:text-rust transition-colors">About Us</Link>
+            <Link href="/services" className="text-rust font-bold transition-colors">Services</Link>
+            <Link href="/blog" className="text-noir hover:text-rust transition-colors">Blog</Link>
+            <Link href="/contact" className="text-noir hover:text-rust transition-colors">Contact</Link>
             <button className="bg-noir text-cream px-6 py-2 hover:bg-slate transition-colors">
               Get Started
             </button>
@@ -358,7 +359,7 @@ export default function ServicesPage() {
                 <div className="bg-cream/10 border-2 border-cream p-6">
                   <h4 className="text-xl font-bold mb-4">Career Coaching</h4>
                   <ul className="space-y-2 text-sm">
-                    <li>• Resume & portfolio review</li>
+                    <li>• Resume &amp; portfolio review</li>
                     <li>• Interview preparation</li>
                     <li>• Salary negotiation strategies</li>
                     <li>• Career path planning</li>
@@ -424,7 +425,7 @@ export default function ServicesPage() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Let's Build Something Great
+            Let&apos;s Build Something Great
           </h2>
           <p className="text-xl text-slate mb-8">
             Ready to start your project or training journey? Get in touch for a free consultation.

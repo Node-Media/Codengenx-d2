@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaMicroscope } from 'react-icons/fa';
 
 export default function ContactPage() {
@@ -13,11 +14,11 @@ export default function ContactPage() {
             <span className="font-bold text-xl">CodengenX</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-noir hover:text-rust transition-colors">Home</a>
-            <a href="/about" className="text-noir hover:text-rust transition-colors">About Us</a>
-            <a href="/services" className="text-noir hover:text-rust transition-colors">Services</a>
-            <a href="/blog" className="text-noir hover:text-rust transition-colors">Blog</a>
-            <a href="/contact" className="text-rust font-bold transition-colors">Contact</a>
+            <Link href="/" className="text-noir hover:text-rust transition-colors">Home</Link>
+            <Link href="/about" className="text-noir hover:text-rust transition-colors">About Us</Link>
+            <Link href="/services" className="text-noir hover:text-rust transition-colors">Services</Link>
+            <Link href="/blog" className="text-noir hover:text-rust transition-colors">Blog</Link>
+            <Link href="/contact" className="text-rust font-bold transition-colors">Contact</Link>
             <button className="bg-noir text-cream px-6 py-2 hover:bg-slate transition-colors">
               Get Started
             </button>
@@ -32,12 +33,12 @@ export default function ContactPage() {
             <span className="font-mono text-sm uppercase tracking-wider">Get In Touch</span>
           </div>
           <h1 className="text-6xl md:text-7xl font-bold leading-tight mb-6">
-            Let's Start<br />
+            Let&apos;s Start<br />
             <span className="text-rust">Building</span> Together
           </h1>
           <p className="text-xl text-sand mb-8 leading-relaxed max-w-3xl mx-auto">
-            Whether you have a project in mind, need training for your team, or want to explore R&D opportunities,
-            we're here to help you succeed.
+            Whether you have a project in mind, need training for your team, or want to explore R&amp;D opportunities,
+            we&apos;re here to help you succeed.
           </p>
         </div>
       </section>
@@ -49,7 +50,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <h2 className="text-4xl font-bold mb-6">Send Us a Message</h2>
-              <p className="text-slate mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+              <p className="text-slate mb-8">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
 
               <form className="space-y-6">
                 <div>
@@ -80,7 +81,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block font-bold mb-2">I'm Interested In *</label>
+                  <label className="block font-bold mb-2">I&apos;m Interested In *</label>
                   <select className="w-full border-2 border-noir p-4 focus:outline-none focus:border-rust transition-colors bg-cream">
                     <option>Web Development</option>
                     <option>Mobile App Development</option>
@@ -147,7 +148,7 @@ export default function ContactPage() {
                 <h3 className="text-3xl font-bold mb-4">Research & Development</h3>
                 <p className="text-cream/90 mb-6 leading-relaxed">
                   Interested in exploring cutting-edge technologies or building innovative solutions?
-                  Our R&D team works on emerging tech and experimental projects.
+                  Our R&amp;D team works on emerging tech and experimental projects.
                 </p>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center gap-3">
@@ -179,7 +180,7 @@ export default function ContactPage() {
               <div className="bg-cream border-4 border-noir p-8">
                 <h3 className="text-2xl font-bold mb-4">Career Opportunities</h3>
                 <p className="text-slate mb-4">
-                  We're always looking for talented developers, designers, and trainers to join our team.
+                  We&apos;re always looking for talented developers, designers, and trainers to join our team.
                 </p>
                 <a href="mailto:careers@codengenx.com" className="text-rust font-bold hover:underline">
                   View Open Positions →
@@ -195,7 +196,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-4">R&D Projects</h2>
-            <p className="text-xl text-sand">Exploring tomorrow's technology today</p>
+            <p className="text-xl text-sand">Exploring tomorrow&apos;s technology today</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="border-2 border-cream p-8">
@@ -287,7 +288,7 @@ export default function ContactPage() {
           </div>
           <div className="space-y-6">
             <div className="border-2 border-noir p-6">
-              <h3 className="text-xl font-bold mb-2">What's your typical project timeline?</h3>
+              <h3 className="text-xl font-bold mb-2">What&apos;s your typical project timeline?</h3>
               <p className="text-slate">
                 Projects typically range from 8-16 weeks depending on complexity. We provide detailed timelines
                 during our discovery phase and maintain transparent communication throughout.
@@ -296,7 +297,7 @@ export default function ContactPage() {
             <div className="border-2 border-noir p-6">
               <h3 className="text-xl font-bold mb-2">Do you work with startups?</h3>
               <p className="text-slate">
-                Absolutely! We've helped dozens of startups build MVPs and scale their products. We offer
+                Absolutely! We&apos;ve helped dozens of startups build MVPs and scale their products. We offer
                 flexible engagement models to work with various budgets.
               </p>
             </div>
@@ -317,7 +318,7 @@ export default function ContactPage() {
             <div className="border-2 border-noir p-6">
               <h3 className="text-xl font-bold mb-2">How do I get started with R&D collaboration?</h3>
               <p className="text-slate">
-                Email our R&D team at rd@codengenx.com with your idea or challenge. We'll schedule a call
+                Email our R&amp;D team at rd@codengenx.com with your idea or challenge. We&apos;ll schedule a call
                 to discuss feasibility, timeline, and partnership options.
               </p>
             </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaMobileAlt, FaShoppingCart, FaDumbbell, FaBook, FaHome, FaCar, FaMusic } from 'react-icons/fa';
 
 export default function BlogPage() {
@@ -13,11 +14,11 @@ export default function BlogPage() {
             <span className="font-bold text-xl">CodengenX</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-noir hover:text-rust transition-colors">Home</a>
-            <a href="/about" className="text-noir hover:text-rust transition-colors">About Us</a>
-            <a href="/services" className="text-noir hover:text-rust transition-colors">Services</a>
-            <a href="/blog" className="text-rust font-bold transition-colors">Blog</a>
-            <a href="/contact" className="text-noir hover:text-rust transition-colors">Contact</a>
+            <Link href="/" className="text-noir hover:text-rust transition-colors">Home</Link>
+            <Link href="/about" className="text-noir hover:text-rust transition-colors">About Us</Link>
+            <Link href="/services" className="text-noir hover:text-rust transition-colors">Services</Link>
+            <Link href="/blog" className="text-rust font-bold transition-colors">Blog</Link>
+            <Link href="/contact" className="text-noir hover:text-rust transition-colors">Contact</Link>
             <button className="bg-noir text-cream px-6 py-2 hover:bg-slate transition-colors">
               Get Started
             </button>

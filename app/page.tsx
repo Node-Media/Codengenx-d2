@@ -186,7 +186,7 @@ export default function Home() {
             Ready to <span className="text-gray-600">Upgrade?</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
-            Let's discuss how we can help you build your next big product or train your team for the challenges of tomorrow.
+            Let&apos;s discuss how we can help you build your next big product or train your team for the challenges of tomorrow.
           </p>
           <Link href="/contact" className="btn-primary text-lg px-10 py-4 h-14">
             Get in Touch

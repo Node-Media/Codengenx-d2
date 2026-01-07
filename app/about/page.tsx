@@ -1,4 +1,5 @@
 import CountUp from '../components/CountUp';
+import Link from 'next/link';
 import { HiSparkles } from 'react-icons/hi';
 import { FaHandshake, FaBook, FaRocket } from 'react-icons/fa';
 
@@ -15,11 +16,11 @@ export default function AboutPage() {
             <span className="font-bold text-xl">CodengenX</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-noir hover:text-rust transition-colors">Home</a>
-            <a href="/about" className="text-rust font-bold transition-colors">About Us</a>
-            <a href="/services" className="text-noir hover:text-rust transition-colors">Services</a>
-            <a href="/blog" className="text-noir hover:text-rust transition-colors">Blog</a>
-            <a href="/contact" className="text-noir hover:text-rust transition-colors">Contact</a>
+            <Link href="/" className="text-noir hover:text-rust transition-colors">Home</Link>
+            <Link href="/about" className="text-rust font-bold transition-colors">About Us</Link>
+            <Link href="/services" className="text-noir hover:text-rust transition-colors">Services</Link>
+            <Link href="/blog" className="text-noir hover:text-rust transition-colors">Blog</Link>
+            <Link href="/contact" className="text-noir hover:text-rust transition-colors">Contact</Link>
             <button className="bg-noir text-cream px-6 py-2 hover:bg-slate transition-colors">
               Get Started
             </button>
@@ -90,9 +91,9 @@ export default function AboutPage() {
             <div className="border-l-4 border-noir pl-8">
               <div className="font-mono text-sm text-noir mb-2">2023-PRESENT - INNOVATION</div>
               <p className="text-lg text-slate leading-relaxed">
-                Today, we're a trusted partner for businesses worldwide, with an expanding portfolio in web, mobile,
+                Today, we&apos;re a trusted partner for businesses worldwide, with an expanding portfolio in web, mobile,
                 and emerging technologies. Our training programs have helped launch careers for 500+ developers,
-                and we continue to push the boundaries of what's possible.
+                and we continue to push the boundaries of what&apos;s possible.
               </p>
             </div>
           </div>
@@ -174,7 +175,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold mb-2">Rahul Kumar</h3>
               <div className="text-rust font-mono text-sm mb-4">Head of Training</div>
               <p className="text-slate">
-                Educator and developer who's trained 500+ students. Creates curriculum that bridges theory and practice.
+                Educator and developer who&apos;s trained 500+ students. Creates curriculum that bridges theory and practice.
               </p>
             </div>
           </div>
@@ -213,7 +214,7 @@ export default function AboutPage() {
             Ready to Work Together?
           </h2>
           <p className="text-xl text-sand mb-8">
-            Whether you need a development partner or want to upskill your team, we're here to help.
+            Whether you need a development partner or want to upskill your team, we&apos;re here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-rust text-cream px-8 py-4 text-lg hover:bg-opacity-90 transition-all">
