@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-body selection:bg-primary selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium tracking-tight text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-full transition-all hover:bg-gray-200 active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-glass {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white/5 border border-white/10 backdrop-blur-md text-white font-medium rounded-full transition-all hover:bg-white/10 active:scale-95;
+  }
+  
+  .card-bento {
+    @apply bg-surface border border-border p-6 rounded-3xl relative overflow-hidden transition-all duration-500 hover:border-white/20;
+  }
+  
+  .container-width {
+    @apply max-w-[1400px] mx-auto px-6;
+  }
+}
+
+@layer utilities {
+  .mask-gradient {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
