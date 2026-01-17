@@ -18,9 +18,8 @@ export default function ServicesPage() {
               <Link
                 key={item}
                 href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${
-                  item === 'Services' ? 'text-white' : 'text-gray-400 hover:text-white'
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${item === 'Services' ? 'text-white' : 'text-gray-400 hover:text-white'
+                  }`}
               >
                 {item}
               </Link>
@@ -57,7 +56,7 @@ export default function ServicesPage() {
             <h2 className="text-5xl font-semibold mb-4 text-white">Development Services</h2>
             <p className="text-xl text-gray-400">Custom solutions built with modern technology</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {[
               {
@@ -177,7 +176,7 @@ export default function ServicesPage() {
         <div className="container-width text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-semibold mb-8">Ready to Get Started?</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Whether you need a development partner or want to upskill your team, we're here to help you succeed.
+            Whether you need a development partner or want to upskill your team, we&apos;re here to help you succeed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary px-8 py-4 text-lg">

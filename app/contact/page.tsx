@@ -18,9 +18,8 @@ export default function ContactPage() {
               <Link
                 key={item}
                 href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${
-                  item === 'Contact' ? 'text-white' : 'text-gray-400 hover:text-white'
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${item === 'Contact' ? 'text-white' : 'text-gray-400 hover:text-white'
+                  }`}
               >
                 {item}
               </Link>
@@ -40,12 +39,12 @@ export default function ContactPage() {
             <span className="text-xs font-mono uppercase tracking-widest text-gray-300">Get in Touch</span>
           </div>
           <h1 className="text-6xl md:text-7xl font-semibold tracking-tighter leading-tight mb-6 text-white">
-            Let's Start<br />
+            Let&apos;s Start<br />
             <span className="text-gray-500">Building</span> Together
           </h1>
           <p className="text-xl text-gray-400 mb-8 leading-relaxed max-w-3xl mx-auto">
             Whether you have a project in mind, need training for your team, or want to explore R&D opportunities,
-            we're here to help you succeed.
+            we&apos;re here to help you succeed.
           </p>
         </div>
       </section>
@@ -57,7 +56,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="card-bento bg-zinc-900 p-10">
               <h2 className="text-3xl font-bold mb-4 text-white">Send Us a Message</h2>
-              <p className="text-gray-400 mb-8">Fill out the form and we'll get back to you within 24 hours.</p>
+              <p className="text-gray-400 mb-8">Fill out the form and we&apos;ll get back to you within 24 hours.</p>
 
               <form className="space-y-6">
                 <div>
@@ -79,7 +78,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block font-medium mb-2 text-white">I'm Interested In *</label>
+                  <label className="block font-medium mb-2 text-white">I&apos;m Interested In *</label>
                   <select className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-white/20 transition-colors">
                     <option>Web Development</option>
                     <option>Mobile App Development</option>
@@ -182,7 +181,7 @@ export default function ContactPage() {
         <div className="container-width text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-semibold mb-8">Ready to Collaborate?</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Let's discuss how we can help you build your next big product or transform your team's capabilities.
+            Let&apos;s discuss how we can help you build your next big product or transform your team&apos;s capabilities.
           </p>
           <Link href="/contact" className="btn-primary px-8 py-4 text-lg inline-flex">
             Schedule a Call
