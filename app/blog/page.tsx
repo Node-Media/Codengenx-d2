@@ -3,40 +3,48 @@ import { FaMobileAlt, FaShoppingCart, FaDumbbell, FaBook, FaHome, FaCar, FaMusic
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-sm border-b border-noir/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-noir flex items-center justify-center">
-              <span className="text-cream font-mono text-sm font-bold">CX</span>
-            </div>
-            <span className="font-bold text-xl">CodengenX</span>
+    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Grid Pattern Background */}
+      <div className="fixed inset-0 z-0 bg-grid-pattern bg-grid opacity-[0.05] pointer-events-none"></div>
+
+      {/* Navbar */}
+      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5">
+        <div className="container-width h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-black font-mono font-bold text-lg group-hover:scale-90 transition-transform">CX</div>
+            <span className="font-display font-bold text-lg tracking-wide text-white">CodengenX</span>
+          </Link>
+          <div className="hidden md:flex items-center gap-1">
+            {['Home', 'Services', 'Blog', 'About', 'Contact'].map((item) => (
+              <Link
+                key={item}
+                href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${
+                  item === 'Blog' ? 'text-white' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {item}
+              </Link>
+            ))}
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-noir hover:text-rust transition-colors">Home</Link>
-            <Link href="/about" className="text-noir hover:text-rust transition-colors">About Us</Link>
-            <Link href="/services" className="text-noir hover:text-rust transition-colors">Services</Link>
-            <Link href="/blog" className="text-rust font-bold transition-colors">Blog</Link>
-            <Link href="/contact" className="text-noir hover:text-rust transition-colors">Contact</Link>
-            <button className="bg-noir text-cream px-6 py-2 hover:bg-slate transition-colors">
-              Get Started
-            </button>
-          </div>
+          <Link href="/contact" className="hidden md:inline-flex btn-primary py-2 px-6 text-sm">
+            Start Project
+          </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-sand">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block mb-4 px-4 py-1 border-2 border-noir">
-            <span className="font-mono text-sm uppercase tracking-wider">Insights & Case Studies</span>
+      <section className="relative z-10 pt-40 pb-20">
+        <div className="container-width text-center">
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span className="text-xs font-mono uppercase tracking-widest text-gray-300">Case Studies</span>
           </div>
-          <h1 className="text-6xl md:text-7xl font-bold leading-tight mb-6">
+          <h1 className="text-6xl md:text-7xl font-semibold tracking-tighter leading-tight mb-6 text-white">
             Product Dev<br />
-            <span className="text-rust">Stories</span> & Insights
+            <span className="text-gray-500">Stories</span> & Insights
           </h1>
-          <p className="text-xl text-slate mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 mb-8 leading-relaxed max-w-3xl mx-auto">
             Real projects, real challenges, real solutions. Explore our product development case studies
             and technical insights from building web and mobile applications.
           </p>
@@ -44,51 +52,60 @@ export default function BlogPage() {
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-8 px-6 bg-cream border-b-2 border-noir">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-noir text-cream px-6 py-2 font-bold">All Posts</button>
-            <button className="border-2 border-noir px-6 py-2 hover:bg-noir hover:text-cream transition-all">Web Development</button>
-            <button className="border-2 border-noir px-6 py-2 hover:bg-noir hover:text-cream transition-all">Mobile Apps</button>
-            <button className="border-2 border-noir px-6 py-2 hover:bg-noir hover:text-cream transition-all">Case Studies</button>
-            <button className="border-2 border-noir px-6 py-2 hover:bg-noir hover:text-cream transition-all">Technical Guides</button>
+      <section className="py-8 relative z-10 border-b border-white/5">
+        <div className="container-width flex justify-center">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {['All Posts', 'Web', 'Mobile', 'Case Studies', 'Guides'].map((tab) => (
+              <button
+                key={tab}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  tab === 'All Posts'
+                    ? 'bg-white text-black'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Post */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-rust text-cream border-4 border-noir p-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Featured Case Study */}
+      <section className="py-20 relative z-10">
+        <div className="container-width">
+          <div className="card-bento bg-zinc-900 group flex flex-col justify-between relative p-12">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block mb-4 px-3 py-1 bg-cream text-rust font-mono text-xs">
+                <div className="inline-block mb-4 px-3 py-1 bg-white/10 text-gray-300 font-mono text-xs rounded-full">
                   FEATURED CASE STUDY
                 </div>
-                <h2 className="text-4xl font-bold mb-4">
+                <h2 className="text-4xl font-bold mb-4 text-white">
                   Building a Fintech App: From MVP to 100K Users in 6 Months
                 </h2>
-                <p className="text-cream/90 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
                   How we helped a fintech startup build a secure, scalable mobile banking application
                   and grow to 100,000+ active users. Deep dive into architecture decisions, security
                   implementations, and scaling challenges.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="bg-cream text-rust px-3 py-1 text-sm font-mono">React Native</span>
-                  <span className="bg-cream text-rust px-3 py-1 text-sm font-mono">Node.js</span>
-                  <span className="bg-cream text-rust px-3 py-1 text-sm font-mono">AWS</span>
-                  <span className="bg-cream text-rust px-3 py-1 text-sm font-mono">PostgreSQL</span>
+                  {['React Native', 'Node.js', 'AWS', 'PostgreSQL'].map((tech) => (
+                    <span key={tech} className="bg-white/10 text-gray-300 px-3 py-1 text-sm font-mono rounded-lg">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="flex items-center gap-4 text-sm mb-6">
-                  <span className="font-mono">12 min read</span>
-                  <span className="font-mono">Mar 15, 2025</span>
+                <div className="flex items-center gap-4 text-sm mb-6 text-gray-500 font-mono">
+                  <span>12 min read</span>
+                  <span>Mar 15, 2025</span>
                 </div>
-                <button className="bg-cream text-rust px-8 py-3 hover:bg-sand transition-all font-bold">
+                <button className="btn-primary px-8 py-3">
                   Read Case Study →
                 </button>
               </div>
-              <div className="bg-cream/10 border-2 border-cream aspect-video flex items-center justify-center">
-                <FaMobileAlt className="text-6xl" />
+              <div className="bg-white/5 aspect-video rounded-2xl flex items-center justify-center border border-white/10">
+                <FaMobileAlt className="text-6xl text-gray-600" />
               </div>
             </div>
           </div>
@@ -96,165 +113,159 @@ export default function BlogPage() {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-20 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 bg-surface relative z-10 border-t border-white/5">
+        <div className="container-width">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Product Development Case Studies</h2>
-            <p className="text-xl text-slate">Real projects, measurable results</p>
+            <h2 className="text-5xl font-semibold mb-4 text-white">Product Development Case Studies</h2>
+            <p className="text-xl text-gray-400">Real projects, measurable results</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Case Study 1 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-olive aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaShoppingCart className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-olive mb-2">E-COMMERCE • WEB</div>
-                <h3 className="text-2xl font-bold mb-3">Multi-Vendor Marketplace Platform</h3>
-                <p className="text-slate mb-4">
-                  Built a scalable e-commerce platform handling 10K+ daily transactions with real-time
-                  inventory management and seller dashboards.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">🛒</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">Multi-Vendor Marketplace</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  E-commerce platform handling 10K+ daily transactions with real-time inventory.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Next.js</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Stripe</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Redis</span>
+                  {['Next.js', 'Stripe', 'Redis'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">8 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">8 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
 
             {/* Case Study 2 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-rust aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaDumbbell className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-rust mb-2">HEALTH & FITNESS • MOBILE</div>
-                <h3 className="text-2xl font-bold mb-3">AI-Powered Fitness Coach App</h3>
-                <p className="text-slate mb-4">
-                  iOS and Android app with ML-based workout recommendations, achieving 200K+ downloads
-                  and 4.8★ rating in first quarter.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">💪</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">AI Fitness Coach App</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  Mobile app with ML-based recommendations, 200K+ downloads and 4.8★ rating.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">React Native</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">TensorFlow</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Firebase</span>
+                  {['React Native', 'TensorFlow', 'Firebase'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">10 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">10 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
 
             {/* Case Study 3 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-slate aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaBook className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-slate mb-2">EDTECH • WEB APP</div>
-                <h3 className="text-2xl font-bold mb-3">Interactive Learning Management System</h3>
-                <p className="text-slate mb-4">
-                  Enterprise LMS platform supporting 50K+ concurrent users with video streaming, live
-                  classes, and progress tracking.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">📚</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">Learning Management System</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  Enterprise LMS with 50K+ concurrent users, video streaming, and live classes.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">React</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">WebRTC</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">MongoDB</span>
+                  {['React', 'WebRTC', 'MongoDB'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">12 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">12 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
 
             {/* Case Study 4 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-olive aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaHome className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-olive mb-2">REAL ESTATE • MOBILE</div>
-                <h3 className="text-2xl font-bold mb-3">Property Search & Virtual Tour App</h3>
-                <p className="text-slate mb-4">
-                  Mobile app with AR-powered virtual tours and AI property matching, serving 5M+ property
-                  listings across 50 cities.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">🏠</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">Property Virtual Tour App</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  AR-powered virtual tours with AI matching, serving 5M+ listings across 50 cities.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Flutter</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">ARCore</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">GraphQL</span>
+                  {['Flutter', 'ARCore', 'GraphQL'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">9 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">9 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
 
             {/* Case Study 5 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-rust aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaCar className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-rust mb-2">TRANSPORTATION • WEB + MOBILE</div>
-                <h3 className="text-2xl font-bold mb-3">Fleet Management Dashboard</h3>
-                <p className="text-slate mb-4">
-                  Real-time tracking and analytics platform for logistics companies, managing 10K+ vehicles
-                  with predictive maintenance.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">🚗</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">Fleet Management Dashboard</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  Real-time tracking for logistics, managing 10K+ vehicles with predictive maintenance.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Vue.js</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">Socket.io</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">TimescaleDB</span>
+                  {['Vue.js', 'Socket.io', 'TimescaleDB'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">11 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">11 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
 
             {/* Case Study 6 */}
-            <div className="bg-sand border-4 border-noir">
-              <div className="bg-slate aspect-video flex items-center justify-center border-b-4 border-noir">
-                <FaMusic className="text-6xl text-cream" />
-              </div>
-              <div className="p-8">
-                <div className="font-mono text-xs text-slate mb-2">ENTERTAINMENT • MOBILE</div>
-                <h3 className="text-2xl font-bold mb-3">Music Streaming App with Offline Mode</h3>
-                <p className="text-slate mb-4">
-                  Cross-platform music streaming app with smart playlists, social features, and seamless
-                  offline playback for 1M+ songs.
+            <div className="card-bento bg-zinc-900 group flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 text-2xl">🎵</div>
+                <h3 className="text-2xl font-bold mb-2 text-white">Music Streaming App</h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  Cross-platform streaming with smart playlists and offline playback for 1M+ songs.
                 </p>
+              </div>
+              <div className="relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">React Native</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">CDN</span>
-                  <span className="text-xs font-mono bg-noir text-cream px-2 py-1">DRM</span>
+                  {['React Native', 'CDN', 'DRM'].map((tech) => (
+                    <span key={tech} className="text-xs font-mono bg-white/5 text-gray-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="pt-4 border-t-2 border-noir">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-mono">7 min read</span>
-                    <span className="text-rust font-bold">Read More →</span>
-                  </div>
+                <div className="flex justify-between items-center text-sm text-gray-500 border-t border-white/10 pt-4">
+                  <span className="font-mono">7 min read</span>
+                  <span className="text-white font-bold">Read More →</span>
                 </div>
               </div>
             </div>
@@ -262,170 +273,66 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Technical Guides */}
-      <section className="py-20 px-6 bg-noir text-cream">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Technical Guides & Insights</h2>
-            <p className="text-xl text-sand">Deep dives into web and mobile development</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">WEB DEVELOPMENT</div>
-              <h3 className="text-2xl font-bold mb-3">Building Scalable Next.js Applications</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                Best practices for structuring large-scale Next.js apps with optimal performance, SEO,
-                and developer experience. Covers App Router, RSC, and deployment strategies.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">15 min read • Mar 10, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">MOBILE DEVELOPMENT</div>
-              <h3 className="text-2xl font-bold mb-3">React Native Performance Optimization</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                Complete guide to building 60fps mobile apps. Memory management, list optimization, native
-                modules, and profiling techniques that make apps feel native.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">18 min read • Mar 8, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">ARCHITECTURE</div>
-              <h3 className="text-2xl font-bold mb-3">Microservices vs Monolith: When to Choose What</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                Real-world decision framework for choosing the right architecture. Case studies showing when
-                microservices helped and when they created unnecessary complexity.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">12 min read • Mar 5, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">DEVOPS</div>
-              <h3 className="text-2xl font-bold mb-3">Zero-Downtime Deployment Strategies</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                Implementing blue-green deployments, canary releases, and feature flags. How we deploy
-                updates to production apps without affecting users.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">10 min read • Mar 1, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">API DESIGN</div>
-              <h3 className="text-2xl font-bold mb-3">Designing RESTful APIs That Scale</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                API design patterns, versioning strategies, authentication methods, and documentation
-                practices that create developer-friendly APIs.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">14 min read • Feb 28, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-
-            <div className="border-2 border-cream p-8 hover:bg-cream hover:text-noir transition-all group">
-              <div className="font-mono text-xs text-rust group-hover:text-rust mb-2">SECURITY</div>
-              <h3 className="text-2xl font-bold mb-3">Web App Security: From Auth to Deployment</h3>
-              <p className="text-sand group-hover:text-slate mb-4">
-                Comprehensive security guide covering authentication, authorization, XSS prevention,
-                CSRF protection, and secure deployment practices.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-mono">16 min read • Feb 25, 2025</span>
-                <span className="group-hover:text-rust">→</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20 px-6 bg-sand">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold mb-6">Stay Updated</h2>
-          <p className="text-xl text-slate mb-8">
-            Get our latest case studies, technical guides, and product development insights delivered to your inbox.
+      {/* Newsletter CTA */}
+      <section className="py-32 border-t border-white/5 bg-background relative overflow-hidden">
+        <div className="container-width text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-8">Stay Updated</h2>
+          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+            Get our latest case studies and technical insights delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 border-2 border-noir px-6 py-4 text-lg focus:outline-none focus:border-rust"
+              className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-white/20"
             />
-            <button className="bg-rust text-cream px-8 py-4 text-lg hover:bg-opacity-90 transition-all font-bold whitespace-nowrap">
+            <button className="btn-primary px-8 py-4 whitespace-nowrap">
               Subscribe
             </button>
           </div>
-          <p className="text-sm text-slate mt-4 font-mono">
-            Join 2,000+ developers and founders. No spam, unsubscribe anytime.
-          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 bg-cream border-t-4 border-noir">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-noir flex items-center justify-center">
-                  <span className="text-cream font-mono text-sm font-bold">CX</span>
-                </div>
-                <span className="font-bold text-xl">CodengenX</span>
-              </div>
-              <p className="text-slate text-sm">
-                Web & app solutions with expert training to power your digital transformation.
+      <footer className="border-t border-white/5 bg-surface text-gray-400 py-20">
+        <div className="container-width">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div className="space-y-6">
+              <h4 className="text-white font-bold text-xl tracking-tight">CodengenX</h4>
+              <p className="text-sm">
+                Empowering the digital future through engineering excellence and education.
               </p>
+              <div className="flex gap-4">
+                {['Twitter', 'LinkedIn', 'GitHub'].map((social) => (
+                  <a key={social} href="#" className="hover:text-white transition-colors">{social}</a>
+                ))}
+              </div>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-slate">
-                <li><a href="/services" className="hover:text-rust transition-colors">Web Development</a></li>
-                <li><a href="/services" className="hover:text-rust transition-colors">Mobile Apps</a></li>
-                <li><a href="/services" className="hover:text-rust transition-colors">Training Programs</a></li>
-                <li><a href="/services" className="hover:text-rust transition-colors">Product Development</a></li>
+              <h4 className="text-white font-bold mb-6">Company</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-slate">
-                <li><a href="/about" className="hover:text-rust transition-colors">About Us</a></li>
-                <li><a href="/blog" className="hover:text-rust transition-colors">Blog</a></li>
-                <li><a href="/contact" className="hover:text-rust transition-colors">Careers</a></li>
-                <li><a href="/contact" className="hover:text-rust transition-colors">Contact</a></li>
+              <h4 className="text-white font-bold mb-6">Services</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/services" className="hover:text-white transition-colors">Web Development</Link></li>
+                <li><Link href="/training" className="hover:text-white transition-colors">Corporate Training</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2 text-slate">
-                <li><a href="/blog" className="hover:text-rust transition-colors">Case Studies</a></li>
-                <li><a href="/contact" className="hover:text-rust transition-colors">R&D Projects</a></li>
-                <li><a href="/services" className="hover:text-rust transition-colors">Training Catalog</a></li>
-                <li><a href="/contact" className="hover:text-rust transition-colors">Support</a></li>
+              <h4 className="text-white font-bold mb-6">Legal</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
-          <div className="border-t-2 border-noir pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate text-sm font-mono">
-              © 2025 CodengenX. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-slate text-sm">
-              <a href="#" className="hover:text-rust transition-colors">Privacy</a>
-              <a href="#" className="hover:text-rust transition-colors">Terms</a>
-              <a href="#" className="hover:text-rust transition-colors">Security</a>
-            </div>
+          <div className="mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-xs">
+            <p>© 2025 CodengenX Inc. All rights reserved.</p>
+            <p className="font-mono">Designed in 2026</p>
           </div>
         </div>
       </footer>

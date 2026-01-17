@@ -16,11 +16,13 @@ export default function Home() {
             <span className="font-display font-bold text-lg tracking-wide text-white">CodengenX</span>
           </Link>
           <div className="hidden md:flex items-center gap-1">
-            {['Home', 'Services', 'Training', 'About'].map((item) => (
+            {['Home', 'Services', 'Blog', 'About', 'Contact'].map((item) => (
               <Link 
                 key={item} 
                 href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/5"
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors hover:bg-white/5 ${
+                  item === 'Home' ? 'text-white' : 'text-gray-400 hover:text-white'
+                }`}
               >
                 {item}
               </Link>
@@ -174,6 +176,143 @@ export default function Home() {
                </div>
                <div className="mt-2 text-xs font-mono text-green-500 text-right">System Secure</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 relative z-10 border-t border-white/5">
+        <div className="container-width">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-white">Our Core Values</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">We believe in holistic development and professional excellence.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Creative Thinking", icon: "💡", desc: "Fostering innovation and out-of-the-box solutions." },
+              { title: "Career Planning", icon: "🎯", desc: "Strategic guidance for a successful professional journey." },
+              { title: "Technical Excellence", icon: "⚡", desc: "Mastering the latest technologies and best practices." }
+            ].map((item, i) => (
+              <div key={i} className="card-bento bg-zinc-900 p-8 hover:bg-white/5 transition-all group">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                <p className="text-gray-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Welcome Section */}
+      <section className="py-20 relative z-10 border-t border-white/5 bg-surface overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-500/5 blur-3xl rounded-full transform translate-x-1/2"></div>
+        <div className="container-width relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-white">Welcome to CodengenX</h2>
+              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+                CodengenX aims to provide an additional advantage to the field of information technology. 
+                We are a team of passionate, skilled and energetic individuals collaborating to offer top-notch services.
+              </p>
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+                Recognized as a leading Ed-Tech and Software Company, we strive to transform your ideas into tangible results. 
+                Our brand represents a fusion of expertise, innovation and contemporary knowledge.
+              </p>
+              <Link href="/about" className="text-blue-400 font-medium hover:text-blue-300 flex items-center gap-2">
+                Learn More About Us <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "50+", label: "Expert Mentors" },
+                { value: "100%", label: "Placement Support" },
+                { value: "24/7", label: "Support System" },
+                { value: "Global", label: "Client Base" }
+              ].map((stat, i) => (
+                <div key={i} className="card-bento bg-zinc-900 p-6 hover:bg-white/5 transition-colors">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview Section */}
+      <section className="py-20 relative z-10 bg-background">
+        <div className="container-width">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+              <span className="text-blue-400 font-bold tracking-wider uppercase text-sm">What We Offer</span>
+              <h2 className="text-4xl md:text-5xl font-semibold mt-2 text-white">Software Services</h2>
+            </div>
+            <Link href="/services" className="text-blue-400 font-medium hover:text-blue-300 mt-4 md:mt-0">
+              View All Services →
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Web Development", desc: "Custom websites and web applications built with modern technologies." },
+              { title: "Mobile Apps", desc: "Native and cross-platform mobile applications for iOS and Android." },
+              { title: "Digital Marketing", desc: "SEO, SEM, and social media strategies to grow your online presence." },
+              { title: "Cloud Solutions", desc: "Scalable cloud infrastructure and DevOps services." },
+              { title: "UI/UX Design", desc: "User-centric design that drives engagement and conversion." },
+              { title: "Consulting", desc: "Expert technical consulting to guide your digital transformation." }
+            ].map((service, i) => (
+              <div key={i} className="card-bento bg-zinc-900 p-8 hover:bg-white/5 transition-all group">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors border border-blue-500/20">
+                  <span className="text-blue-400 group-hover:text-white text-xl transition-colors">⚡</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-white">{service.title}</h3>
+                <p className="text-gray-400 mb-4">{service.desc}</p>
+                <Link href="/services" className="text-sm font-medium text-blue-400 hover:text-blue-300">Learn more →</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Training Programs Section */}
+      <section className="py-20 relative z-10 border-t border-white/5 bg-surface">
+        <div className="container-width">
+          <div className="text-center mb-16">
+            <span className="text-blue-400 font-bold tracking-wider uppercase text-sm">Education</span>
+            <h2 className="text-4xl md:text-5xl font-semibold mt-2 mb-4 text-white">Training Programs</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+              Industry-oriented training programs designed to make you job-ready.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Data Science", icon: "📊" },
+              { title: "Full Stack Java", icon: "☕" },
+              { title: "MERN Stack", icon: "⚛️" },
+              { title: "AWS & DevOps", icon: "☁️" },
+              { title: "Python", icon: "🐍" },
+              { title: "Machine Learning", icon: "🤖" },
+              { title: "Cyber Security", icon: "🔒" },
+              { title: "Digital Marketing", icon: "📱" }
+            ].map((course, i) => (
+              <div key={i} className="card-bento bg-zinc-900 group relative overflow-hidden aspect-[4/5] flex items-end p-6 hover:bg-white/5 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+                <div className="absolute inset-0 text-9xl opacity-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  {course.icon}
+                </div>
+                
+                <div className="relative z-20 w-full">
+                  <h3 className="text-white text-xl font-bold mb-2">{course.title}</h3>
+                  <p className="text-gray-400 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                    Placement Guaranteed Program
+                  </p>
+                  <button className="text-blue-400 text-sm font-medium border-b border-blue-400/30 pb-1 hover:border-blue-400 transition-colors">
+                    View Details →
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
